@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - GoldRobo-AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .payment-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #1E1E1E;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        .payment-option {
+            margin-bottom: 2rem;
+        }
+        .payment-option h3 {
+            margin-bottom: 1rem;
+        }
+        .payment-option p {
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+        .payment-option a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .payment-option a:hover {
+            color: #FF4500;
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+        }
+        .procedure-steps {
+            margin-top: 2rem;
+        }
+        .procedure-steps h3 {
+            margin-bottom: 1rem;
+        }
+        .procedure-steps ol {
+            padding-left: 1.5rem;
+            color: #FFFFFF;
+        }
+        .procedure-steps li {
+            margin-bottom: 1rem;
+        }
+        .note {
+            margin-top: 1rem;
+            color: #FFD700;
+            font-style: italic;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            background: linear-gradient(90deg, #FFD700, #DAA520);
+            color: #0E0E0E;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo.png" alt="GoldRobo-AI Logo" class="logo-img">
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html#home"><span class="icon">🏠</span>Home</a></li>
+            <li><a href="index.html#about"><span class="icon">ℹ️</span>About</a></li>
+            <li><a href="index.html#features"><span class="icon">⚙️</span>Features</a></li>
+            <li><a href="index.html#buy-robot" class="active"><span class="icon">🤖</span>Buy Robot</a></li>
+            <li><a href="index.html#contact"><span class="icon">📞</span>Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header">
+            <div class="account-info">
+                <span class="account-id">Account: Zubair Ahmad</span>
+                <span class="account-status">Active</span>
+            </div>
+        </header>
+
+        <div class="payment-container">
+            <h1>Payment for <span id="robot-name">Robot</span></h1>
+            
+            <div class="payment-option">
+                <h3>Option 1: Pay with Crypto (USDT TRC20)</h3>
+                <p>Wallet Address: TU315cWJfinEqTHbPr9VWQ6tmPkXT744Xo</p>
+                <p>Ensure you send the exact amount for the robot you are purchasing.</p>
+            </div>
+
+            <div class="payment-option">
+                <h3>Option 2: Pay with Easypaisa</h3>
+                <p>Account Number: 9203336403319</p>
+                <p>Account Name: Zubair Ahmad</p>
+                <p>Send the payment via Easypaisa to the above account.</p>
+            </div>
+
+            <div class="procedure-steps">
+                <h3>Payment Procedure</h3>
+                <ol>
+                    <li><strong>Step 1:</strong> Pay through Crypto (USDT TRC20) or Easypaisa using the details provided above.</li>
+                    <li><strong>Step 2:</strong> Send a screenshot of the payment confirmation to the following WhatsApp number: <a href="https://wa.me/9203336403319" target="_blank">9203336403319</a>.</li>
+                    <li><strong>Step 3:</strong> Share your email or WhatsApp number with us via the same WhatsApp chat so we can send you the robot along with detailed installation guidelines.</li>
+                </ol>
+                <p class="note">Note: Free online help is available through AnyDesk to guide you during the installation process, ensuring you become profitable.</p>
+            </div>
+
+            <a href="index.html#buy-robot" class="back-btn">Back to Buy Robot</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 GoldRobo-AI. All rights reserved.</p>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#buy-robot">Buy Robot</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        // Get the robot name from the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const robotName = urlParams.get('robot') || 'Robot';
+        document.getElementById('robot-name').textContent = robotName;
+    </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldRobo-AI - Automated Trading Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="futuristic-bg">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="images/robot-banner.png" alt="GoldRobo-AI Logo" class="logo-img">
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#home" class="active"><span class="icon">🏠</span>Home</a></li>
+            <li><a href="#about"><span class="icon">ℹ️</span>About</a></li>
+            <li><a href="#features"><span class="icon">⚙️</span>Features</a></li>
+            <li><a href="#buy-robot"><span class="icon">🤖</span>Buy Robot</a></li>
+            <li><a href="#contact"><span class="icon">📞</span>Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="account-info">
+                <span class="account-id animated-text">Your Companion in Profit Making</span>
+                <span class="account-status">GoldRobo-AI, Zubair Ahmed</span>
+            </div>
+            <div class="stock-ticker">
+                <div class="ticker-content">
+                    <span>Gold: $1890.50 (+1.2%) | Bitcoin: $58200.00 (-0.8%) | EUR/USD: 1.1850 (+0.3%) | S&P 500: 4450.30 (+0.5%) | Oil: $75.20 (-1.1%) | Gold: $1890.50 (+1.2%) | Bitcoin: $58200.00 (-0.8%) | EUR/USD: 1.1850 (+0.3%) | S&P 500: 4450.30 (+0.5%) | Oil: $75.20 (-1.1%)</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Pages -->
+        <div id="home" class="page active">
+            <section class="banner">
+                <div class="banner-image">
+                    <img src="images/robot-banner.png" alt="GoldRobo-AI Banner" class="banner-img">
+                </div>
+                <h1 class="gradient-text">Welcome to GoldRobo-AI</h1>
+                <p class="highlight-text">Automate your trading with our advanced AI-powered trading robot for consistent profits.</p>
+                <a href="#features" class="gold-btn">Explore Features</a>
+            </section>
+            <section class="features-section">
+                <h2 class="gradient-text">Why Choose GoldRobo-AI?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>High Win Rate</h3>
+                        <p>Achieve up to <span class="highlight-text">90% success</span> with our proven algorithms.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Easy Setup</h3>
+                        <p>Get started in <span class="highlight-text">minutes</span> with our user-friendly platform.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>24/7 Support</h3>
+                        <p>Our team is here to assist you <span class="highlight-text">anytime</span>.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="trading-bots-section">
+                <h2 class="gradient-text">Featured Trading Bots</h2>
+                <div class="trading-bots-grid">
+                    <div class="bot-item animated fade-in">
+                        <img src="images/crypto-trader.png" alt="Crypto Trader" class="bot-image">
+                        <h3 class="gradient-text">Crypto Trader</h3>
+                        <p class="price">$520</p>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
+                    </div>
+                    <div class="bot-item animated slide-in-right">
+                        <img src="images/alpha-pulse-x1.png" alt="AlphaPulse X1" class="bot-image">
+                        <h3 class="gradient-text">AlphaPulse X1</h3>
+                        <p class="price">$510</p>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
+                    </div>
+                    <div class="bot-item animated fade-in">
+                        <img src="images/turbo-pip-master-v2.png" alt="TurboPipMaster V2" class="bot-image">
+                        <h3 class="gradient-text">TurboPipMaster V2</h3>
+                        <p class="price">$300</p>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
+                    </div>
+                    <div class="bot-item animated slide-in-left">
+                        <img src="images/forex-phoenix-300.png" alt="ForexPhoenix 300" class="bot-image">
+                        <h3 class="gradient-text">ForexPhoenix 300</h3>
+                        <p class="price">$300</p>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
+                    </div>
+                    <div class="bot-item animated fade-in">
+                        <img src="images/nabula-trader.png" alt="Nabula Trader" class="bot-image">
+                        <h3 class="gradient-text">Nabula Trader</h3>
+                        <p class="price">$510</p>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
+                    </div>
+                    <div class="bot-item animated slide-in-right">
+                        <img src="images/quantum-trades-pro.png" alt="QuantumTrades Pro" class="bot-image">
+                        <h3 class="gradient-text">QuantumTrades Pro</h3>
+                        <p class="price">$500</p>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Other pages remain unchanged -->
+        <div id="about" class="page dark-section">
+            <h1 class="gradient-text">About GoldRobo-AI</h1>
+            <p class="max-w-2xl mx-auto text-lg highlight-text animated fade-in">
+                GoldRobo-AI is a pioneering force in automated trading, dedicated to empowering traders with cutting-edge AI technology. Founded in 2020, our mission is to simplify trading while maximizing profits and minimizing risks. Our trading robot leverages advanced machine learning algorithms to analyze market trends in real-time, ensuring optimal trading decisions for both beginners and seasoned experts.
+            </p>
+            <div class="about-content">
+                <div class="about-item animated slide-in-left">
+                    <h3 class="gradient-text">Our Vision</h3>
+                    <p class="highlight-text">To revolutionize the trading industry by making AI-driven solutions accessible to everyone, enabling financial freedom through smart automation.</p>
+                </div>
+                <div class="about-item animated fade-in">
+                    <h3 class="gradient-text">Our Achievements</h3>
+                    <p class="highlight-text">Since our launch, GoldRobo-AI has empowered over <span class="highlight-bold">10,000 traders</span> worldwide, achieving an average annual return of <span class="highlight-bold">85%</span> for our users.</p>
+                </div>
+                <div class="about-item animated slide-in-right">
+                    <h3 class="gradient-text">Our Technology</h3>
+                    <p class="highlight-text">Powered by <span class="highlight-bold">quantum-inspired algorithms</span>, our platform processes over <span class="highlight-bold">1 million data points per second</span> to deliver precise trading signals.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="features" class="page futuristic-section">
+            <h1 class="gradient-text">Our Features</h1>
+            <div class="features-grid futuristic-grid">
+                <div class="feature-item animated fade-in">
+                    <img src="images/ai-algorithm-graph.png" alt="AI Algorithm Graph" class="futuristic-graph" onerror="this.src='images/default-placeholder.png'">
+                    <h3 class="gradient-text">Next-Gen AI Algorithms</h3>
+                    <p class="highlight-text">Harness the power of <span class="highlight-bold">quantum-inspired AI</span> for unparalleled trading precision, delivering a <span class="highlight-bold">95% win rate</span> in dynamic markets.</p>
+                </div>
+                <div class="feature-item animated slide-in-right">
+                    <img src="images/mt4-mt5-integration.png" alt="MT4/MT5 Integration" class="futuristic-image" onerror="this.src='images/default-placeholder1.png'">
+                    <h3 class="gradient-text">Seamless MT4/MT5 Integration</h3>
+                    <p class="highlight-text">Integrate effortlessly with <span class="highlight-bold">MetaTrader 4 and 5</span> for a cutting-edge trading experience across all devices.</p>
+                </div>
+                <div class="feature-item animated fade-in">
+                    <img src="images/risk-management-chart.png" alt="Risk Management Chart" class="futuristic-graph" onerror="this.src='images/default-placeholder2.png'">
+                    <h3 class="gradient-text">Adaptive Risk Management</h3>
+                    <p class="highlight-text">Customize your <span class="highlight-bold">risk protocols</span> with AI-driven insights to safeguard your investments in volatile markets.</p>
+                </div>
+                <div class="feature-item animated slide-in-left">
+                    <img src="images/performance-analytics.png" alt="Performance Analytics" class="futuristic-graph" onerror="this.src='images/default-placeholder3.png'">
+                    <h3 class="gradient-text">Real-Time Analytics Hub</h3>
+                    <p class="highlight-text">Access <span class="highlight-bold">live data dashboards</span> to monitor trades and optimize strategies in real time.</p>
+                </div>
+                <div class="feature-item animated fade-in">
+                    <img src="images/multi-market-chart.png" alt="Multi-Market Chart" class="futuristic-graph" onerror="this.src='images/default-placeholder4.png'">
+                    <h3 class="gradient-text">Multi-Market Domination</h3>
+                    <p class="highlight-text">Conquer <span class="highlight-bold">forex, crypto, and commodities</span> with a single, AI-powered trading bot.</p>
+                </div>
+                <div class="feature-item animated slide-in-right">
+                    <img src="images/robot-interface.png" alt="Robot Interface" class="futuristic-image" onerror="this.src='images/default-placeholder5.png'">
+                    <h3 class="gradient-text">Intuitive Holographic Interface</h3>
+                    <p class="highlight-text">Experience a <span class="highlight-bold">futuristic UI</span> designed for traders of all levels—start trading in seconds.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="buy-robot" class="page">
+            <h1 class="gradient-text">Buy a Robot</h1>
+            <div class="robot-grid" id="robot-grid">
+                <div class="robot-item">
+                    <img src="images/robot1.png" alt="Robot 1" onerror="this.src='images/default-robot.png'">
+                    <h3>GoldBot Pro</h3>
+                    <p class="price">$499</p>
+                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <div class="details">
+                        <p>Advanced AI trading bot with 90% win rate, suitable for forex and crypto markets.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="robot-item">
+                    <img src="images/robot2.png" alt="Robot 2" onerror="this.src='images/default-robot1.png'">
+                    <h3>GoldBot Elite</h3>
+                    <p class="price">$799</p>
+                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <div class="details">
+                        <p>Elite version with enhanced risk management and multi-market support.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="robot-item">
+                    <img src="images/robot3.png" alt="Robot 3" onerror="this.src='images/default-robot2.png'">
+                    <h3>GoldBot Ultra</h3>
+                    <p class="price">$999</p>
+                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <div class="details">
+                        <p>Ultimate trading bot with real-time analytics and 24/7 support.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="robot-item">
+                    <img src="images/robot4.png" alt="Robot 4" onerror="this.src='images/default-robot3.png'">
+                    <h3>GoldBot Starter</h3>
+                    <p class="price">$299</p>
+                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <div class="details">
+                        <p>Entry-level bot for beginners, focusing on forex trading.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="robot-item">
+                    <img src="images/robot5.png" alt="Robot 5" onerror="this.src='images/default-robot4.png'">
+                    <h3>GoldBot Advanced</h3>
+                    <p class="price">$599</p>
+                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <div class="details">
+                        <p>Advanced bot with support for crypto and commodities.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <button id="first-btn" class="gold-btn">First Page</button>
+                <button id="prev-btn" class="gold-btn" disabled>Previous</button>
+                <span id="page-info">Page 1 of 3</span>
+                <button id="next-btn" class="gold-btn">Next</button>
+                <button id="last-btn" class="gold-btn">Last Page</button>
+            </div>
+        </div>
+
+        <div id="contact" class="page">
+            <h1 class="gradient-text">Contact Us</h1>
+            <div class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button onclick="handleContactSubmit()" class="gold-btn">Send</button>
+            </div>
+            <div class="contact-details">
+                <h3 class="gradient-text">Chief Executive</h3>
+                <p>Name: <span class="highlight-text">Zubair Ahmad</span></p>
+                <p>WhatsApp: <a href="https://wa.me/9203336403319" target="_blank">9203336403319</a></p>
+                <p>Email: <a href="/cdn-cgi/l/email-protection#23595641424a510d4d4c554251574a5063444e424a4f0d404c4e"><span class="__cf_email__" data-cfemail="1a606f787b73683474756c7b686e73695a7d777b737634797577">[email protected]</span></a></p>
+                <p>Location: <span class="highlight-text">Islamabad, Pakistan</span></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="futuristic-footer">
+            <p>© 2025 GoldRobo-AI. All rights reserved.</p>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#buy-robot">Buy Robot</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        (function(){
+            function c(){
+                var b=a.contentDocument||a.contentWindow.document;
+                if(b){
+                    var d=b.createElement('script');
+                    d.innerHTML="window.__CF$cv$params={r:'9365538a2f72bfc0',t:'MTc0NTY2MjYwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if(document.body){
+                var a=document.createElement('iframe');
+                a.height=1;
+                a.width=1;
+                a.style.position='absolute';
+                a.style.top=0;
+                a.style.left=0;
+                a.style.border='none';
+                a.style.visibility='hidden';
+                document.body.appendChild(a);
+                if('loading'!==document.readyState)c();
+                else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
+                else{
+                    var e=document.onreadystatechange||function(){};
+                    document.onreadystatechange=function(b){
+                        e(b);
+                        'loading'!==document.readyState&&(document.onreadystatechange=e,c())
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
