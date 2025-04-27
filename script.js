@@ -160,6 +160,15 @@ function toggleDetails(id) {
     }
 }
 
+function toggleBotDetails(botId) {
+    const details = document.getElementById(`details-${botId}`);
+    if (details) {
+        details.classList.toggle('active');
+    } else {
+        console.error(`Details element with id details-${botId} not found`);
+    }
+}
+
 firstBtn.addEventListener('click', () => {
     currentPage = 1;
     renderRobots();
@@ -204,4 +213,3 @@ function handleContactSubmit() {
         alert('Please fill in all fields.');
     }
 }
-
