@@ -14,11 +14,11 @@
             <img src="images/robot-banner.png" alt="GoldRobo-AI Logo" class="logo-img">
         </div>
         <ul class="sidebar-links">
+            <li><a href="#top-selling-robot"><span class="icon">⭐</span>Top Selling Robot</a></li>
             <li><a href="#home" class="active"><span class="icon">🏠</span>Home</a></li>
             <li><a href="#about"><span class="icon">ℹ️</span>About</a></li>
             <li><a href="#features"><span class="icon">⚙️</span>Features</a></li>
             <li><a href="#buy-robot"><span class="icon">🤖</span>Buy Robot</a></li>
-            <li><a href="#payment"><span class="icon">💳</span>Payment</a></li>
             <li><a href="#contact"><span class="icon">📞</span>Contact</a></li>
         </ul>
     </div>
@@ -39,6 +39,52 @@
         </header>
 
         <!-- Pages -->
+        <div id="top-selling-robot" class="page">
+            <h1 class="gradient-text">Top Selling Robot</h1>
+            <div class="robot-grid" id="top-selling-robot-grid">
+                <div class="robot-item">
+                    <img src="images/order-block-fvg-trader.png" alt="Order Block and FVG Trader" onerror="this.src='images/default-robot.png'">
+                    <h3>Order Block and FVG Trader</h3>
+                    <p>Identifies the OB and FVG at the selected time frame and places pending orders.</p>
+                    <p class="price">$450</p>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
+                    <div class="details">
+                        <p>Identifies the OB and FVG at the selected time frame and places pending orders.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="robot-item">
+                    <img src="images/million-movers-algo.png" alt="Million Movers Algo" onerror="this.src='images/default-robot.png'">
+                    <h3>Million Movers Algo</h3>
+                    <p>Trades in the direction of the trend. It only opens trades when the lower time frame trend aligns with the higher time frame trend with at least 30% strength of the trend. It uses 5 different trend-finding strategies to formulate the trend strength.</p>
+                    <p class="price">$550</p>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
+                    <div class="details">
+                        <p>Trades in the direction of the trend. It only opens trades when the lower time frame trend aligns with the higher time frame trend with at least 30% strength of the trend. It uses 5 different trend-finding strategies to formulate the trend strength.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+                <div class="robot-item">
+                    <img src="images/trade-manager-v2.png" alt="Trade Manager V2" onerror="this.src='images/default-robot.png'">
+                    <h3>Trade Manager V2</h3>
+                    <p>The best tool for risk management. Most traders lose money in trading due to poor risk management. This tool helps them become profitable. It automatically places SL and TP on open trades by the user. It also breakevens the trades after a desired profit level, then starts trailing the profit. It has a feature to partially close the trade in profit and breakeven the remaining trade.</p>
+                    <p class="price">$250</p>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
+                    <div class="details">
+                        <p>The best tool for risk management. Most traders lose money in trading due to poor risk management. This tool helps them become profitable. It automatically places SL and TP on open trades by the user. It also breakevens the trades after a desired profit level, then starts trailing the profit. It has a feature to partially close the trade in profit and breakeven the remaining trade.</p>
+                        <a href="#" class="buy-now">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <button id="top-selling-first-btn" class="gold-btn">First Page</button>
+                <button id="top-selling-prev-btn" class="gold-btn" disabled>Previous</button>
+                <span id="top-selling-page-info">Page 1 of 1</span>
+                <button id="top-selling-next-btn" class="gold-btn" disabled>Next</button>
+                <button id="top-selling-last-btn" class="gold-btn">Last Page</button>
+            </div>
+        </div>
+
         <div id="home" class="page active">
             <section class="banner">
                 <div class="banner-image">
@@ -69,70 +115,45 @@
                 <h2 class="gradient-text">Featured Trading Bots</h2>
                 <div class="trading-bots-grid">
                     <div class="bot-item animated fade-in">
-                        <img src="images/crypto-trader.png" alt="Crypto Trader" class="bot-image" onerror="this.src='images/default-robot.png'">
+                        <img src="images/crypto-trader.png" alt="Crypto Trader" class="bot-image" onerror="this.src='images/default-bot.png'">
                         <h3 class="gradient-text">Crypto Trader</h3>
                         <p class="price">$520</p>
-                        <button onclick="toggleBotDetails('crypto-trader')" class="gold-btn">View Details</button>
-                        <div id="details-crypto-trader" class="details">
-                            <p>Crypto Trader focuses on cryptocurrency markets, offering a 90% win rate on MT4/MT5. Perfect for Bitcoin, Ethereum, and altcoin trading.</p>
-                            <a href="payment.html?robot=Crypto%20Trader" class="gold-btn">Proceed to Payment</a>
-                        </div>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
                     </div>
                     <div class="bot-item animated slide-in-right">
-                        <img src="images/alpha-pulse-x1.png" alt="AlphaPulse X1" class="bot-image" onerror="this.src='images/default-robot.png'">
+                        <img src="images/alpha-pulse-x1.png" alt="AlphaPulse X1" class="bot-image" onerror="this.src='images/default-bot.png'">
                         <h3 class="gradient-text">AlphaPulse X1</h3>
                         <p class="price">$510</p>
-                        <button onclick="toggleBotDetails('alpha-pulse-x1')" class="gold-btn">View Details</button>
-                        <div id="details-alpha-pulse-x1" class="details">
-                            <p>AlphaPulse X1 is optimized for high-frequency trading on MT4/MT5. With an 85% win rate, it’s perfect for scalping strategies.</p>
-                            <a href="payment.html?robot=AlphaPulse%20X1" class="gold-btn">Proceed to Payment</a>
-                        </div>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
                     </div>
                     <div class="bot-item animated fade-in">
-                        <img src="images/turbo-pip-master-v2.png" alt="TurboPipMaster V2" class="bot-image" onerror="this.src='images/default-robot.png'">
+                        <img src="images/turbo-pip-master-v2.png" alt="TurboPipMaster V2" class="bot-image" onerror="this.src='images/default-bot.png'">
                         <h3 class="gradient-text">TurboPipMaster V2</h3>
                         <p class="price">$300</p>
-                        <button onclick="toggleBotDetails('turbo-pip-master-v2')" class="gold-btn">View Details</button>
-                        <div id="details-turbo-pip-master-v2" class="details">
-                            <p>TurboPipMaster V2 excels in pip-based trading on MT4/MT5. Achieves an 89% win rate, designed for fast-paced forex markets.</p>
-                            <a href="payment.html?robot=TurboPipMaster%20V2" class="gold-btn">Proceed to Payment</a>
-                        </div>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
                     </div>
                     <div class="bot-item animated slide-in-left">
-                        <img src="images/forex-phoenix-300.png" alt="ForexPhoenix 300" class="bot-image" onerror="this.src='images/default-robot.png'">
+                        <img src="images/forex-phoenix-300.png" alt="ForexPhoenix 300" class="bot-image" onerror="this.src='images/default-bot.png'">
                         <h3 class="gradient-text">ForexPhoenix 300</h3>
                         <p class="price">$300</p>
-                        <button onclick="toggleBotDetails('forex-phoenix-300')" class="gold-btn">View Details</button>
-                        <div id="details-forex-phoenix-300" class="details">
-                            <p>ForexPhoenix 300 offers robust forex trading on MT4/MT5. With a 90% win rate, it’s ideal for both beginners and experts.</p>
-                            <a href="payment.html?robot=ForexPhoenix%20300" class="gold-btn">Proceed to Payment</a>
-                        </div>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
                     </div>
                     <div class="bot-item animated fade-in">
-                        <img src="images/nabula-trader.png" alt="Nabula Trader" class="bot-image" onerror="this.src='images/default-robot.png'">
+                        <img src="images/nabula-trader.png" alt="Nabula Trader" class="bot-image" onerror="this.src='images/default-bot.png'">
                         <h3 class="gradient-text">Nabula Trader</h3>
                         <p class="price">$510</p>
-                        <button onclick="toggleBotDetails('nabula-trader')" class="gold-btn">View Details</button>
-                        <div id="details-nabula-trader" class="details">
-                            <p>Nabula Trader uses cutting-edge AI to trade across various markets on MT4/MT5. Achieves an 87% win rate, suitable for all traders.</p>
-                            <a href="payment.html?robot=Nabula%20Trader" class="gold-btn">Proceed to Payment</a>
-                        </div>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
                     </div>
                     <div class="bot-item animated slide-in-right">
-                        <img src="images/quantum-trades-pro.png" alt="QuantumTrades Pro" class="bot-image" onerror="this.src='images/default-robot.png'">
+                        <img src="images/quantum-trades-pro.png" alt="QuantumTrades Pro" class="bot-image" onerror="this.src='images/default-bot.png'">
                         <h3 class="gradient-text">QuantumTrades Pro</h3>
                         <p class="price">$500</p>
-                        <button onclick="toggleBotDetails('quantum-trades-pro')" class="gold-btn">View Details</button>
-                        <div id="details-quantum-trades-pro" class="details">
-                            <p>QuantumTrades Pro uses quantum-inspired algorithms for trading on MT4/MT5. Offers an 91% win rate, perfect for advanced traders.</p>
-                            <a href="payment.html?robot=QuantumTrades%20Pro" class="gold-btn">Proceed to Payment</a>
-                        </div>
+                        <button onclick="showPage('buy-robot')" class="gold-btn">View Details</button>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- Other pages remain unchanged -->
         <div id="about" class="page dark-section">
             <h1 class="gradient-text">About GoldRobo-AI</h1>
             <p class="max-w-2xl mx-auto text-lg highlight-text animated fade-in">
@@ -147,6 +168,7 @@
                     <h3 class="gradient-text">Our Achievements</h3>
                     <p class="highlight-text">Using cutting edge AI technology to bring innovative solutions for the trading community.</p>
                 </div>
+
                 <div class="about-item animated slide-in-right">
                     <h3 class="gradient-text">Our Technology</h3>
                     <p class="highlight-text">Powered by <span class="highlight-bold">quantum-inspired algorithms</span>, our platform processes over <span class="highlight-bold">1 million data points per second</span> to deliver precise trading signals.</p>
@@ -194,50 +216,55 @@
             <h1 class="gradient-text">Buy a Robot</h1>
             <div class="robot-grid" id="robot-grid">
                 <div class="robot-item">
-                    <img src="images/robot1.png" alt="Robot 1" onerror="this.src='images/default-robot.png'">
-                    <h3>GoldBot Pro</h3>
-                    <p class="price">$499</p>
-                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <img src="images/goldnexus-elite.png" alt="GoldNexus Elite" onerror="this.src='images/default-robot.png'">
+                    <h3>GoldNexus Elite</h3>
+                    <p>A specialized robot for gold trading with unmatched precision.</p>
+                    <p class="price">$599.99</p>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
                     <div class="details">
                         <p>Advanced AI trading bot with 90% win rate, suitable for forex and crypto markets.</p>
                         <a href="#" class="buy-now">Buy Now</a>
                     </div>
                 </div>
                 <div class="robot-item">
-                    <img src="images/robot2.png" alt="Robot 2" onerror="this.src='images/default-robot1.png'">
-                    <h3>GoldBot Elite</h3>
-                    <p class="price">$799</p>
-                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <img src="images/crypto-trader.png" alt="Crypto Trader" onerror="this.src='images/default-robot.png'">
+                    <h3>Crypto Trader</h3>
+                    <p>Trade cryptocurrencies with confidence and high accuracy.</p>
+                    <p class="price">$649.99</p>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
                     <div class="details">
                         <p>Elite version with enhanced risk management and multi-market support.</p>
                         <a href="#" class="buy-now">Buy Now</a>
                     </div>
                 </div>
                 <div class="robot-item">
-                    <img src="images/robot3.png" alt="Robot 3" onerror="this.src='images/default-robot2.png'">
-                    <h3>GoldBot Ultra</h3>
-                    <p class="price">$999</p>
-                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <img src="images/vertexfx-navigator.png" alt="VertexFX-Navigator" onerror="this.src='images/default-robot.png'">
+                    <h3>VertexFX-Navigator</h3>
+                    <p>Navigate forex markets with this powerful trading bot.</p>
+                    <p class="price">$520.00</p>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
                     <div class="details">
                         <p>Ultimate trading bot with real-time analytics and 24/7 support.</p>
                         <a href="#" class="buy-now">Buy Now</a>
                     </div>
                 </div>
                 <div class="robot-item">
-                    <img src="images/robot4.png" alt="Robot 4" onerror="this.src='images/default-robot3.png'">
+                    <img src="images/robot4.png" alt="Robot 4" onerror="this.src='images/default-robot.png'">
                     <h3>GoldBot Starter</h3>
+                    <p>Entry-level bot for beginners, focusing on forex trading.</p>
                     <p class="price">$299</p>
-                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
                     <div class="details">
                         <p>Entry-level bot for beginners, focusing on forex trading.</p>
                         <a href="#" class="buy-now">Buy Now</a>
                     </div>
                 </div>
                 <div class="robot-item">
-                    <img src="images/robot5.png" alt="Robot 5" onerror="this.src='images/default-robot4.png'">
+                    <img src="images/robot5.png" alt="Robot 5" onerror="this.src='images/default-robot.png'">
                     <h3>GoldBot Advanced</h3>
+                    <p>Advanced bot with support for crypto and commodities.</p>
                     <p class="price">$599</p>
-                    <button class="details-button" onclick="toggleDetails(this)">Details</button>
+                    <button class="details-button" onclick="toggleDetails(this)">More Details</button>
                     <div class="details">
                         <p>Advanced bot with support for crypto and commodities.</p>
                         <a href="#" class="buy-now">Buy Now</a>
@@ -250,15 +277,6 @@
                 <span id="page-info">Page 1 of 3</span>
                 <button id="next-btn" class="gold-btn">Next</button>
                 <button id="last-btn" class="gold-btn">Last Page</button>
-            </div>
-        </div>
-
-        <div id="payment" class="page">
-            <h1 class="gradient-text">Payment</h1>
-            <div class="payment-container">
-                <h3 class="gradient-text">Select a Robot to Proceed with Payment</h3>
-                <p class="highlight-text">Please go to the Buy Robot section to select a trading bot and proceed with payment.</p>
-                <a href="#buy-robot" class="gold-btn">Go to Buy Robot</a>
             </div>
         </div>
 
@@ -277,7 +295,7 @@
                 <h3 class="gradient-text">Chief Executive</h3>
                 <p>Name: <span class="highlight-text">Zubair Ahmad</span></p>
                 <p>WhatsApp: <a href="https://wa.me/9203336403319" target="_blank">9203336403319</a></p>
-                <p>Email: <a href="/cdn-cgi/l/email-protection#63e9e6f1f2fae1bdfdfce5f2e1e7fae0d3f4fef2faffbdf0fcfe"><span class="__cf_email__" data-cfemail="1a606f787b73683474756c7b686e73695a7d777b737634797577">[email protected]</span></a></p>
+                <p>Email: <a href="/cdn-cgi/l/email-protection#23595641424a510d4d4c554251574a5063444e424a4f0d404c4e"><span class="__cf_email__" data-cfemail="1a606f787b73683474756c7b686e73695a7d777b737634797577">[email protected]</span></a></p>
                 <p>Location: <span class="highlight-text">Islamabad, Pakistan</span></p>
             </div>
         </div>
@@ -286,6 +304,7 @@
         <footer class="futuristic-footer">
             <p>© 2025 GoldRobo-AI. All rights reserved.</p>
             <ul>
+                <li><a href="#top-selling-robot">Top Selling Robot</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#features">Features</a></li>
@@ -329,5 +348,5 @@
             }
         })();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'936a2274199dbcd8',t:'MTc0NTcxMzAyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
