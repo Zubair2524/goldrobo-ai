@@ -276,7 +276,7 @@ function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, next
             const robotDiv = document.createElement('div');
             robotDiv.classList.add('robot-item');
             robotDiv.innerHTML = `
-                <img src="${robot.image}" alt="${robot.name}" onerror="console.error('Failed to load image: ${robot.image}'); this.src='images/default-robot.png';" class="robot-image">
+                <img src="${robot.image}" alt="${robot.name}" onerror="console.error('Failed to load image: ${robot.image}'); this.src='images/default-robot.png';">
                 <h3>${robot.name}</h3>
                 <p>${robot.description}</p>
                 <p class="price">$${robot.price}</p>
@@ -360,7 +360,7 @@ function renderVideos() {
             videoDiv.classList.add('video-item');
             videoDiv.innerHTML = `
                 <a href="${video.url}" target="_blank">
-                    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='images/default-video-thumbnail.png';" class="video-thumbnail">
+                    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='images/default-video-thumbnail.png';">
                     <h3>${video.title}</h3>
                 </a>
             `;
@@ -423,56 +423,7 @@ function initializeBannerCarousel() {
     });
 }
 
-// Function to add click event listeners to robot images
-function initializeRobotImageClicks() {
-    // Handle robot images in grids (robot-item, bot-item)
-    document.querySelectorAll('.robot-item img, .bot-item img').forEach(img => {
-        img.addEventListener('click', () => {
-            window.location.href = 'buy-robot.html';
-        });
-    });
-
-    // Handle banner images
-    document.querySelectorAll('.banner-img').forEach(img => {
-        img.addEventListener('click', () => {
-            window.location.href = 'buy-robot.html';
-        });
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Toggle hamburger menu for navbar
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const sidebarHamburger = document.querySelector('.sidebar .hamburger');
-    const sidebarLinks = document.querySelector('.sidebar-links');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-
-    if (sidebarHamburger && sidebarLinks) {
-        sidebarHamburger.addEventListener('click', () => {
-            sidebarLinks.classList.toggle('active');
-        });
-
-        // Close sidebar menu when a link is clicked
-        sidebarLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                sidebarLinks.classList.remove('active');
-            });
-        });
-    }
-
     // Sidebar navigation
     document.querySelectorAll('.sidebar-links a').forEach(link => {
         link.addEventListener('click', (e) => {
@@ -519,13 +470,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('home')) {
         initializeBannerCarousel();
     }
-
-    // Initialize robot image click handlers
-    initializeRobotImageClicks();
-
-    // Re-apply image click handlers after any dynamic content load
-    const observer = new MutationObserver(() => {
-        initializeRobotImageClicks();
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
 });
