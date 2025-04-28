@@ -98,7 +98,7 @@ const robots = [
         description: "Trade cryptocurrencies with confidence and high accuracy.",
         price: "649.99",
         details: "Crypto Trader focuses on cryptocurrency markets, offering a 90% win rate on MT4/MT5. Perfect for Bitcoin, Ethereum, and altcoin trading.",
-        image: "images/c Olimpiatrader.png"
+        image: "images/cryptotrader.png"
     },
     {
         id: 3,
@@ -276,7 +276,7 @@ function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, next
             const robotDiv = document.createElement('div');
             robotDiv.classList.add('robot-item');
             robotDiv.innerHTML = `
-                <img src="${robot.image}" alt="${robot.name}" onerror="console.error('Failed to load image: ${robot.image}'); this.src='images/default-robot.png';">
+                <img src="${robot.image}" alt="${robot.name}" onerror="console.error('Failed to load image: ${robot.image}'); this.src='images/default-robot.png';" class="robot-image">
                 <h3>${robot.name}</h3>
                 <p>${robot.description}</p>
                 <p class="price">$${robot.price}</p>
@@ -360,7 +360,7 @@ function renderVideos() {
             videoDiv.classList.add('video-item');
             videoDiv.innerHTML = `
                 <a href="${video.url}" target="_blank">
-                    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='images/default-video-thumbnail.png';">
+                    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='images/default-video-thumbnail.png';" class="video-thumbnail">
                     <h3>${video.title}</h3>
                 </a>
             `;
@@ -420,6 +420,23 @@ function initializeBannerCarousel() {
         img.alt = 'Robot Banner';
         img.classList.add('banner-img');
         bannerImages.appendChild(img);
+    });
+}
+
+// Function to add click event listeners to robot images
+function initializeRobotImageClicks() {
+    // Handle robot images in grids (robot-item, bot-item)
+    document.querySelectorAll('.robot-item img, .bot-item img').forEach(img => {
+        img.addEventListener('click', () => {
+            window.location.href = 'buy-robot.html';
+        });
+    });
+
+    // Handle banner images
+    document.querySelectorAll('.banner-img').forEach(img => {
+        img.addEventListener('click', () => {
+            window.location.href = 'buy-robot.html';
+        });
     });
 }
 
@@ -502,4 +519,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('home')) {
         initializeBannerCarousel();
     }
+
+    // Initialize robot image click handlers
+    initializeRobotImageClicks();
+
+    // Re-apply image click handlers after any dynamic content load
+    const observer = new MutationObserver(() => {
+        initializeRobotImageClicks();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 });
