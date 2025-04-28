@@ -272,7 +272,7 @@ h3 {
 
 .banner-images {
     display: flex;
-    animation: scrollImages 20s linear infinite;
+    animation: scrollImages 30s linear infinite;
 }
 
 .banner-img {
@@ -305,6 +305,9 @@ h3 {
     font-weight: bold;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
+    min-width: 44px;
+    min-height: 44px;
+    line-height: 1.2;
 }
 
 .gold-btn:hover {
@@ -615,6 +618,9 @@ h3 {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    line-height: 1.2;
 }
 
 .details-button:hover {
@@ -632,6 +638,9 @@ h3 {
     display: inline-block;
     margin-top: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+    line-height: 1.2;
 }
 
 .buy-now:hover {
@@ -691,6 +700,9 @@ h3 {
 
 .pagination button {
     cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    line-height: 1.2;
 }
 
 /* Footer */
@@ -763,8 +775,51 @@ h3 {
     color: #FFD700;
 }
 
+/* Overflow Handling */
+body, .main-content, .sidebar, .navbar, .page {
+    overflow-x: hidden;
+}
+
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 200px;
+        width: calc(100vw - 200px);
+    }
+
+    .sidebar {
+        width: 200 MOUSEOVER {
+            cursor: pointer;
+        }
+    }
+
+    .sidebar:hover {
+        background-color: #585858;
+    }
+
+    .sidebar:active {
+        background-color: #484848;
+    }
+
+    .banner-img {
+        width: 250px;
+        height: 180px;
+    }
+
+    .features-grid,
+    .trading-bots-grid,
+    .robot-grid,
+    .video-grid,
+    .about-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
     .sidebar {
         width: 100%;
         height: auto;
@@ -773,11 +828,7 @@ h3 {
         flex-direction: row;
         justify-content: space-between;
         padding: 0.5rem 1rem;
-    }
-
-    .main-content {
-        margin-left: 0;
-        width: 100%;
+        z-index: 1000;
     }
 
     .sidebar-links {
@@ -789,14 +840,43 @@ h3 {
         right: 0;
         background: #1A1A1A;
         padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     .sidebar-links.active {
         display: flex;
     }
 
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #1A1A1A;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
     .hamburger {
         display: block;
+        font-size: 1.8rem;
     }
 
     .banner-scroll {
@@ -811,29 +891,51 @@ h3 {
     .header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 0.5rem;
     }
 
     .account-info {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #1A1A1A;
+    .stock-ticker {
+        font-size: 0.9rem;
+    }
+
+    .features-grid,
+    .trading-bots-grid,
+    .robot-grid,
+    .video-grid,
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-item,
+    .bot-item,
+    .robot-item,
+    .video-item,
+    .about-item {
         padding: 1rem;
     }
 
-    .nav-links.active {
-        display: flex;
+    .contact-form {
+        padding: 1.5rem;
+        max-width: 100%;
     }
-}
 
-@media (max-width: 480px) {
+    .contact-details {
+        max-width: 100%;
+        margin: 1rem auto;
+    }
+
+    .contact-image {
+        width: 80px;
+        height: 80px;
+    }
+
     h1 {
         font-size: 2rem;
     }
@@ -842,8 +944,71 @@ h3 {
         font-size: 1.5rem;
     }
 
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .highlight-text {
+        font-size: 1rem;
+    }
+
     .gold-btn {
         padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .futuristic-footer ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 50px;
+    }
+
+    .hamburger {
+        font-size: 1.5rem;
+    }
+
+    .sidebar-links,
+    .nav-links {
+        top: 50px;
+        padding: 0.5rem;
+    }
+
+    .sidebar-links li,
+    .nav-links li {
+        margin-bottom: 0.5rem;
+    }
+
+    .sidebar-links li a,
+    .nav-links li a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .highlight-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
 
     .banner-scroll {
@@ -853,9 +1018,118 @@ h3 {
     .banner-img {
         width: 150px;
         height: 100px;
+        margin: 0 5px;
+    }
+
+    .bot-image,
+    .futuristic-graph,
+    .futuristic-image,
+    .robot-item img,
+    .video-item img {
+        height: 150px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-form textarea {
+        min-height: 80px;
+    }
+
+    .contact-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .gold-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .pagination button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .payment-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .payment-option p,
+    .procedure-steps li {
+        font-size: 0.9rem;
+    }
+
+    .note {
+        font-size: 0.8rem;
+    }
+
+    .futuristic-footer {
+        padding: 1rem;
+    }
+
+    .futuristic-footer p {
+        font-size: 0.8rem;
+    }
+
+    .futuristic-footer ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .highlight-text {
+        font-size: 0.8rem;
+    }
+
+    .banner-img {
+        width: 120px;
+        height: 80px;
+    }
+
+    .bot-image,
+    .futuristic-graph,
+    .futuristic-image,
+    .robot-item img,
+    .video-item img {
+        height: 120px;
     }
 
     .contact-form {
         padding: 1rem;
+    }
+
+    .gold-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .pagination {
+        gap: 0.3rem;
+    }
+
+    .pagination button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
     }
 }
