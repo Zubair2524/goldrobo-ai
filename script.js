@@ -52,10 +52,31 @@ function handleContactSubmit() {
     const message = document.getElementById('message').value;
 
     if (name && email && message) {
-        alert('Thank you for your message! We will get back to you soon.');
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('message').value = '';
+        // Simulate sending email to zubair.novartis@gmail.com
+        // Note: Actual email sending requires a server-side implementation
+        fetch('/send-contact-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message,
+                to: 'zubair.novartis@gmail.com'
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Thank you for your message! We will get back to you soon.');
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+        })
+        .catch(error => {
+            console.error('Error sending contact form:', error);
+            alert('There was an error sending your message. Please try again later.');
+        });
     } else {
         alert('Please fill in all fields.');
     }
@@ -100,7 +121,7 @@ const robots = [
         name: "CentinelAI Trader",
         description: "AI-driven trading for consistent profits.",
         price: "699.99",
-        details: "CentinelAI Trader leverages AI for smart trading decisions on MT4/MT5. Offers an 86% win rate, ideal for long-term profitability.",
+        details: "CentinelAI Trader leverages AI sole traders on MT4/MT5. Offers an 86% win rate, ideal for long-term profitability.",
         image: "images/centinelaitrader.png"
     },
     {
@@ -188,6 +209,37 @@ const topSellingRobots = [
         image: "images/trade-manager-v2.png"
     }
 ];
+
+// Videos for EA Videos page
+const baseVideos = [
+    {
+        id: 1,
+        title: "Order Block and FVG EA",
+        thumbnail: "images/order-block-fvg-trader.png",
+        url: "https://youtu.be/XeaJI5wSzOA"
+    },
+    {
+        id: 2,
+        title: "Trend Following EA Million Movers Algo",
+        thumbnail: "images/million-movers-algo.png",
+        url: "https://youtu.be/qTc10jMdxlw"
+    },
+    {
+        id: 3,
+        title: "Trade Manager - Manage Your Risk Like a Pro",
+        thumbnail: "images/trade-manager-v2.png",
+        url: "https://youtu.be/qTc10jMdxlw"
+    }
+];
+
+// Repeat the first three videos across all pages (80 videos total, 3 per page = 27 pages)
+const videos = [];
+for (let i = 0; i < 80; i += 3) {
+    videos.push(...baseVideos.map(video => ({
+        ...video,
+        id: video.id + i // Ensure unique IDs
+    })));
+}
 
 // Generic function to render robots for a given grid and robot list
 function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, nextBtnId, lastBtnId, robotsPerPage) {
@@ -279,6 +331,98 @@ function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, next
     });
 }
 
+// Function to render videos for the EA Videos page
+function renderVideos() {
+    const videoGrid = document.getElementById('video-grid');
+    const pageInfo = document.getElementById('video-page-info');
+    const firstBtn = document.getElementById('video-first-btn');
+    const prevBtn = document.getElementById('video-prev-btn');
+    const nextBtn = document.getElementById('video-next-btn');
+    const lastBtn = document.getElementById('video-last-btn');
+
+    let currentPage = 1;
+    const videosPerPage = 3;
+    const totalPages = Math.ceil(videos.length / videosPerPage);
+
+    function render() {
+        const start = (currentPage - 1) * videosPerPage;
+        const end = start + videosPerPage;
+        const currentVideos = videos.slice(start, end);
+
+        if (!videoGrid) {
+            console.error('video-grid element not found in the DOM');
+            return;
+        }
+
+        videoGrid.innerHTML = '';
+        currentVideos.forEach(video => {
+            const videoDiv = document.createElement('div');
+            videoDiv.classList.add('video-item');
+            videoDiv.innerHTML = `
+                <a href="${video.url}" target="_blank">
+                    <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='images/default-video-thumbnail.png';">
+                    <h3>${video.title}</h3>
+                </a>
+            `;
+            videoGrid.appendChild(videoDiv);
+        });
+
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        firstBtn.disabled = currentPage === 1;
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+        lastBtn.disabled = currentPage === totalPages;
+    }
+
+    render();
+
+    firstBtn.addEventListener('click', () => {
+        currentPage = 1;
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });
+
+    lastBtn.addEventListener('click', () => {
+        currentPage = totalPages;
+        render();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Function to initialize banner carousel on the home page
+function initializeBannerCarousel() {
+    const bannerImages = document.querySelector('.banner-images');
+    if (!bannerImages) return;
+
+    const robotImages = robots.map(robot => robot.image);
+    // Duplicate images to create seamless loop
+    const doubledImages = [...robotImages, ...robotImages];
+    
+    doubledImages.forEach(image => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = 'Robot Banner';
+        img.classList.add('banner-img');
+        bannerImages.appendChild(img);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Sidebar navigation
     document.querySelectorAll('.sidebar-links a').forEach(link => {
@@ -315,5 +459,15 @@ document.addEventListener('DOMContentLoaded', () => {
             'top-selling-last-btn',
             3
         );
+    }
+
+    // Render videos for EA Videos page
+    if (document.getElementById('video-grid')) {
+        renderVideos();
+    }
+
+    // Initialize banner carousel on home page
+    if (document.getElementById('home')) {
+        initializeBannerCarousel();
     }
 });
