@@ -98,7 +98,7 @@ const robots = [
         description: "Trade cryptocurrencies with confidence and high accuracy.",
         price: "649.99",
         details: "Crypto Trader focuses on cryptocurrency markets, offering a 90% win rate on MT4/MT5. Perfect for Bitcoin, Ethereum, and altcoin trading.",
-        image: "images/cryptotrader.png"
+        image: "images/c Olimpiatrader.png"
     },
     {
         id: 3,
@@ -424,6 +424,38 @@ function initializeBannerCarousel() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Toggle hamburger menu for navbar
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const sidebarHamburger = document.querySelector('.sidebar .hamburger');
+    const sidebarLinks = document.querySelector('.sidebar-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    if (sidebarHamburger && sidebarLinks) {
+        sidebarHamburger.addEventListener('click', () => {
+            sidebarLinks.classList.toggle('active');
+        });
+
+        // Close sidebar menu when a link is clicked
+        sidebarLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                sidebarLinks.classList.remove('active');
+            });
+        });
+    }
+
     // Sidebar navigation
     document.querySelectorAll('.sidebar-links a').forEach(link => {
         link.addEventListener('click', (e) => {
