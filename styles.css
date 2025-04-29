@@ -28,11 +28,13 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
+    left: 0;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 100;
+    overflow-y: auto;
 }
 
 .logo-img {
@@ -766,37 +768,30 @@ h3 {
 /* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: sticky;
+        width: 200px;
+        position: fixed;
         top: 0;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0.5rem 1rem;
-    }
-
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .sidebar-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
+        bottom: 0;
         left: 0;
-        right: 0;
-        background: #1A1A1A;
-        padding: 1rem;
-    }
-
-    .sidebar-links.active {
+        z-index: 100;
         display: flex;
     }
 
+    .main-content {
+        margin-left: 200px;
+        width: calc(100vw - 200px);
+    }
+
+    .navbar {
+        display: none;
+    }
+
     .hamburger {
-        display: block;
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
     }
 
     .banner-scroll {
@@ -816,46 +811,24 @@ h3 {
     .account-info {
         margin-bottom: 1rem;
     }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #1A1A1A;
-        padding: 1rem;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .gold-btn {
-        padding: 0.5rem 1rem;
-    }
-
-    .banner-scroll {
-        height: 150px;
-    }
-
-    .banner-img {
+    .sidebar {
         width: 150px;
-        height: 100px;
     }
 
-    .contact-form {
-        padding: 1rem;
+    .main-content {
+        margin-left: 150px;
+        width: calc(100vw - 150px);
+    }
+
+    .sidebar-links li a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .logo-img {
+        height: 60px;
     }
 }

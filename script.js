@@ -1,31 +1,50 @@
 /**
- * Show a specific page and hide others
- * @param {string} pageId - The ID of the page to show
+ * Show a specific page and handle navigation across SPA and separate pages
+ * @param {string} pageId - The ID of the page to show or the page name for separate pages
  */
 function showPage(pageId) {
-    // Hide all pages
-    document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-    });
+    // Check if we're on index.html (SPA)
+    if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach(page => {
+            page.classList.remove("active");
+        });
 
-    // Show the selected page
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
-    } else {
-        console.error(`Page with ID "${pageId}" not found.`);
-    }
-
-    // Update sidebar link active state
-    document.querySelectorAll('.sidebar-links a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${pageId}`) {
-            link.classList.add('active');
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add("active");
+        } else {
+            console.error(`Page with ID "${pageId}" not found.`);
         }
-    });
 
-    // Scroll to top of the page
-    window.scrollTo(0, 0);
+        // Update sidebar link active state
+        document.querySelectorAll(".sidebar-links a").forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${pageId}`) {
+                link.classList.add("active");
+            }
+        });
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+        // Redirect to index.html for SPA pages or to separate pages
+        const spaPages = ["top-selling-robot", "home", "about", "features", "buy-robot", "contact"];
+        const pageMap = {
+            "ea-videos": "ea-videos.html",
+            "about": "about.html",
+            "features": "features.html",
+            "buy-robot": "buy-robot.html",
+            "contact": "contact.html"
+        };
+
+        if (spaPages.includes(pageId)) {
+            window.location.href = `index.html#${pageId}`;
+        } else if (pageMap[pageId]) {
+            window.location.href = pageMap[pageId];
+        } else {
+            console.error(`Unknown page ID "${pageId}".`);
+        }
+    }
 }
 
 /**
@@ -35,9 +54,9 @@ function showPage(pageId) {
 function toggleDetails(id) {
     const details = document.getElementById(`details-${id}`);
     if (details) {
-        details.classList.toggle('active');
+        details.classList.toggle("active");
         const button = details.previousElementSibling;
-        button.textContent = details.classList.contains('active') ? 'Hide Details' : 'More Details';
+        button.textContent = details.classList.contains("active") ? "Hide Details" : "More Details";
     } else {
         console.error(`Details element with id details-${id} not found`);
     }
@@ -47,38 +66,38 @@ function toggleDetails(id) {
  * Handle contact form submission
  */
 function handleContactSubmit() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
     if (name && email && message) {
         // Simulate sending email to zubair.novartis@gmail.com
         // Note: Actual email sending requires a server-side implementation
-        fetch('/send-contact-email', {
-            method: 'POST',
+        fetch("/send-contact-email", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 name: name,
                 email: email,
                 message: message,
-                to: 'zubair.novartis@gmail.com'
+                to: "zubair.novartis@gmail.com"
             })
         })
         .then(response => response.json())
         .then(data => {
-            alert('Thank you for your message! We will get back to you soon.');
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
+            alert("Thank you for your message! We will get back to you soon.");
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
         })
         .catch(error => {
-            console.error('Error sending contact form:', error);
-            alert('There was an error sending your message. Please try again later.');
+            console.error("Error sending contact form:", error);
+            alert("There was an error sending your message. Please try again later.");
         });
     } else {
-        alert('Please fill in all fields.');
+        alert("Please fill in all fields.");
     }
 }
 
@@ -90,7 +109,8 @@ const robots = [
         description: "A specialized robot for gold trading with unmatched precision.",
         price: "599.99",
         details: "GoldNexus Elite is designed for gold trading on MT4/MT5 platforms. It uses advanced AI to achieve a 92% win rate, making it ideal for volatile markets.",
-        image: "images/goldnexuselite.png"
+        image: "images/goldnexuselite.png",
+        page: "payment.html?robot=GoldNexus+Elite"
     },
     {
         id: 2,
@@ -98,7 +118,8 @@ const robots = [
         description: "Trade cryptocurrencies with confidence and high accuracy.",
         price: "649.99",
         details: "Crypto Trader focuses on cryptocurrency markets, offering a 90% win rate on MT4/MT5. Perfect for Bitcoin, Ethereum, and altcoin trading.",
-        image: "images/cryptotrader.png"
+        image: "images/cryptotrader.png",
+        page: "payment.html?robot=Crypto+Trader"
     },
     {
         id: 3,
@@ -106,7 +127,8 @@ const robots = [
         description: "Navigate forex markets with this powerful trading bot.",
         price: "520.00",
         details: "VortexFX-Navigator provides robust forex trading strategies on MT4/MT5. With an 88% win rate, it’s great for major currency pairs.",
-        image: "images/vortexfx-navigator.png"
+        image: "images/vortexfx-navigator.png",
+        page: "payment.html?robot=VortexFX-Navigator"
     },
     {
         id: 4,
@@ -114,7 +136,8 @@ const robots = [
         description: "A futuristic trader for all market conditions.",
         price: "679.99",
         details: "Nabula Trader uses cutting-edge AI to trade across various markets on MT4/MT5. Achieves an 87% win rate, suitable for all traders.",
-        image: "images/nabulatrader.png"
+        image: "images/nabulatrader.png",
+        page: "payment.html?robot=Nabula+Trader"
     },
     {
         id: 5,
@@ -122,7 +145,8 @@ const robots = [
         description: "AI-driven trading for consistent profits.",
         price: "699.99",
         details: "CentinelAI Trader leverages AI sole traders on MT4/MT5. Offers an 86% win rate, ideal for long-term profitability.",
-        image: "images/centinelaitrader.png"
+        image: "images/centinelaitrader.png",
+        page: "payment.html?robot=CentinelAI+Trader"
     },
     {
         id: 6,
@@ -130,7 +154,8 @@ const robots = [
         description: "Pulse through the markets with this advanced bot.",
         price: "510.00",
         details: "AlphaPulse X1 is optimized for high-frequency trading on MT4/MT5. With an 85% win rate, it’s perfect for scalping strategies.",
-        image: "images/alphapulsex1.png"
+        image: "images/alphapulsex1.png",
+        page: "payment.html?robot=AlphaPulse+X1"
     },
     {
         id: 7,
@@ -138,7 +163,8 @@ const robots = [
         description: "Master the pips with turbo speed and accuracy.",
         price: "729.99",
         details: "TurboPipMaster V2 excels in pip-based trading on MT4/MT5. Achieves an 89% win rate, designed for fast-paced forex markets.",
-        image: "images/turbopipmasterv2.png"
+        image: "images/turbopipmasterv2.png",
+        page: "payment.html?robot=TurboPipMaster+V2"
     },
     {
         id: 8,
@@ -146,7 +172,8 @@ const robots = [
         description: "Rise from the ashes with this forex trading bot.",
         price: "749.99",
         details: "ForexPhoenix 300 offers robust forex trading on MT4/MT5. With a 90% win rate, it’s ideal for both beginners and experts.",
-        image: "images/forexphoenix300.png"
+        image: "images/forexphoenix300.png",
+        page: "payment.html?robot=ForexPhoenix+300"
     },
     {
         id: 9,
@@ -154,7 +181,8 @@ const robots = [
         description: "Trade with quantum precision and efficiency.",
         price: "500.00",
         details: "QuantumTrades Pro uses quantum-inspired algorithms for trading on MT4/MT5. Offers an 91% win rate, perfect for advanced traders.",
-        image: "images/quantumtradespro.png"
+        image: "images/quantumtradespro.png",
+        page: "payment.html?robot=QuantumTrades+Pro"
     },
     {
         id: 10,
@@ -162,7 +190,8 @@ const robots = [
         description: "Identifies the OB and FVG at the selected time frame and places pending orders.",
         price: "450.00",
         details: "Order Block and FVG Trader specializes in identifying Order Blocks (OB) and Fair Value Gaps (FVG) on MT4/MT5. It places pending orders automatically for precise entries.",
-        image: "images/order-block-fvg-trader.png"
+        image: "images/order-block-fvg-trader.png",
+        page: "payment.html?robot=Order+Block+and+FVG+Trader"
     },
     {
         id: 11,
@@ -170,7 +199,8 @@ const robots = [
         description: "Trades in the direction of the trend with multi-timeframe alignment.",
         price: "550.00",
         details: "Million Movers Algo trades in the direction of the trend on MT4/MT5. It only opens trades when the lower time frame trend aligns with the higher time frame trend with at least 30% strength of the trend. It uses 5 different trend-finding strategies to formulate the trend strength.",
-        image: "images/million-movers-algo.png"
+        image: "images/million-movers-algo.png",
+        page: "payment.html?robot=Million+Movers+Algo"
     },
     {
         id: 12,
@@ -178,7 +208,8 @@ const robots = [
         description: "The best tool for risk management in trading.",
         price: "250.00",
         details: "Trade Manager V2 is the ultimate risk management tool on MT4/MT5. It automatically places SL and TP on open trades, breakevens trades after a desired profit level, trails profits, and allows partial trade closure in profit while breakevening the remainder.",
-        image: "images/trade-manager-v2.png"
+        image: "images/trade-manager-v2.png",
+        page: "payment.html?robot=Trade+Manager+V2"
     }
 ];
 
@@ -190,7 +221,8 @@ const topSellingRobots = [
         description: "Identifies the OB and FVG at the selected time frame and places pending orders.",
         price: "450.00",
         details: "Order Block and FVG Trader specializes in identifying Order Blocks (OB) and Fair Value Gaps (FVG) on MT4/MT5. It places pending orders automatically for precise entries.",
-        image: "images/order-block-fvg-trader.png"
+        image: "images/order-block-fvg-trader.png",
+        page: "payment.html?robot=Order+Block+and+FVG+Trader"
     },
     {
         id: 11,
@@ -198,7 +230,8 @@ const topSellingRobots = [
         description: "Trades in the direction of the trend with multi-timeframe alignment.",
         price: "550.00",
         details: "Million Movers Algo trades in the direction of the trend on MT4/MT5. It only opens trades when the lower time frame trend aligns with the higher time frame trend with at least 30% strength of the trend. It uses 5 different trend-finding strategies to formulate the trend strength.",
-        image: "images/million-movers-algo.png"
+        image: "images/million-movers-algo.png",
+        page: "payment.html?robot=Million+Movers+Algo"
     },
     {
         id: 12,
@@ -206,7 +239,8 @@ const topSellingRobots = [
         description: "The best tool for risk management in trading.",
         price: "250.00",
         details: "Trade Manager V2 is the ultimate risk management tool on MT4/MT5. It automatically places SL and TP on open trades, breakevens trades after a desired profit level, trails profits, and allows partial trade closure in profit while breakevening the remainder.",
-        image: "images/trade-manager-v2.png"
+        image: "images/trade-manager-v2.png",
+        page: "payment.html?robot=Trade+Manager+V2"
     }
 ];
 
@@ -255,26 +289,26 @@ function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, next
 
     function render() {
         console.log(`Rendering robots for ${gridId}...`);
-        console.log('Current Page:', currentPage);
-        console.log('Total Pages:', totalPages);
-        console.log('Robots Array Length:', robotList.length);
+        console.log("Current Page:", currentPage);
+        console.log("Total Pages:", totalPages);
+        console.log("Robots Array Length:", robotList.length);
 
         const start = (currentPage - 1) * robotsPerPage;
         const end = start + robotsPerPage;
         const currentRobots = robotList.slice(start, end);
 
-        console.log('Current Robots:', currentRobots);
+        console.log("Current Robots:", currentRobots);
 
         if (!robotGrid) {
             console.error(`${gridId} element not found in the DOM`);
             return;
         }
 
-        robotGrid.innerHTML = '';
+        robotGrid.innerHTML = "";
         currentRobots.forEach(robot => {
-            console.log('Attempting to load image:', robot.image);
-            const robotDiv = document.createElement('div');
-            robotDiv.classList.add('robot-item');
+            console.log("Attempting to load image:", robot.image);
+            const robotDiv = document.createElement("div");
+            robotDiv.classList.add("robot-item");
             robotDiv.innerHTML = `
                 <img src="${robot.image}" alt="${robot.name}" onerror="console.error('Failed to load image: ${robot.image}'); this.src='images/default-robot.png';">
                 <h3>${robot.name}</h3>
@@ -283,7 +317,7 @@ function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, next
                 <button class="details-button" onclick="toggleDetails(${robot.id})">More Details</button>
                 <div id="details-${robot.id}" class="details">
                     <p>${robot.details}</p>
-                    <a href="payment.html?robot=${encodeURIComponent(robot.name)}" class="buy-now">Buy Now</a>
+                    <a href="${robot.page}" class="buy-now">Buy Now</a>
                 </div>
             `;
             robotGrid.appendChild(robotDiv);
@@ -302,43 +336,43 @@ function renderRobots(robotList, gridId, pageInfoId, firstBtnId, prevBtnId, next
 
     render();
 
-    firstBtn.addEventListener('click', () => {
+    firstBtn.addEventListener("click", () => {
         currentPage = 1;
         render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
             render();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     });
 
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener("click", () => {
         if (currentPage < totalPages) {
             currentPage++;
             render();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     });
 
-    lastBtn.addEventListener('click', () => {
+    lastBtn.addEventListener("click", () => {
         currentPage = totalPages;
         render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
 
 // Function to render videos for the EA Videos page
 function renderVideos() {
-    const videoGrid = document.getElementById('video-grid');
-    const pageInfo = document.getElementById('video-page-info');
-    const firstBtn = document.getElementById('video-first-btn');
-    const prevBtn = document.getElementById('video-prev-btn');
-    const nextBtn = document.getElementById('video-next-btn');
-    const lastBtn = document.getElementById('video-last-btn');
+    const videoGrid = document.getElementById("video-grid");
+    const pageInfo = document.getElementById("video-page-info");
+    const firstBtn = document.getElementById("video-first-btn");
+    const prevBtn = document.getElementById("video-prev-btn");
+    const nextBtn = document.getElementById("video-next-btn");
+    const lastBtn = document.getElementById("video-last-btn");
 
     let currentPage = 1;
     const videosPerPage = 3;
@@ -350,14 +384,14 @@ function renderVideos() {
         const currentVideos = videos.slice(start, end);
 
         if (!videoGrid) {
-            console.error('video-grid element not found in the DOM');
+            console.error("video-grid element not found in the DOM");
             return;
         }
 
-        videoGrid.innerHTML = '';
+        videoGrid.innerHTML = "";
         currentVideos.forEach(video => {
-            const videoDiv = document.createElement('div');
-            videoDiv.classList.add('video-item');
+            const videoDiv = document.createElement("div");
+            videoDiv.classList.add("video-item");
             videoDiv.innerHTML = `
                 <a href="${video.url}" target="_blank">
                     <img src="${video.thumbnail}" alt="${video.title}" onerror="this.src='images/default-video-thumbnail.png';">
@@ -376,98 +410,113 @@ function renderVideos() {
 
     render();
 
-    firstBtn.addEventListener('click', () => {
+    firstBtn.addEventListener("click", () => {
         currentPage = 1;
         render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener("click", () => {
         if (currentPage > 1) {
             currentPage--;
             render();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     });
 
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener("click", () => {
         if (currentPage < totalPages) {
             currentPage++;
             render();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     });
 
-    lastBtn.addEventListener('click', () => {
+    lastBtn.addEventListener("click", () => {
         currentPage = totalPages;
         render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 }
 
 // Function to initialize banner carousel on the home page
 function initializeBannerCarousel() {
-    const bannerImages = document.querySelector('.banner-images');
+    const bannerImages = document.querySelector(".banner-images");
     if (!bannerImages) return;
 
     const robotImages = robots.map(robot => robot.image);
     // Duplicate images to create seamless loop
     const doubledImages = [...robotImages, ...robotImages];
-    
+
     doubledImages.forEach(image => {
-        const img = document.createElement('img');
+        const img = document.createElement("img");
         img.src = image;
-        img.alt = 'Robot Banner';
-        img.classList.add('banner-img');
+        img.alt = "Robot Banner";
+        img.classList.add("banner-img");
         bannerImages.appendChild(img);
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     // Sidebar navigation
-    document.querySelectorAll('.sidebar-links a').forEach(link => {
-        link.addEventListener('click', (e) => {
+    document.querySelectorAll(".sidebar-links a").forEach(link => {
+        link.addEventListener("click", (e) => {
             e.preventDefault();
-            const pageId = link.getAttribute('href').substring(1);
-            showPage(pageId);
+            const href = link.getAttribute("href");
+            if (href.startsWith("#")) {
+                const pageId = href.substring(1);
+                showPage(pageId);
+            } else {
+                window.location.href = href;
+            }
         });
     });
 
     // Render robots for Buy Robot page
-    if (document.getElementById('robot-grid')) {
+    if (document.getElementById("robot-grid")) {
         renderRobots(
             robots,
-            'robot-grid',
-            'page-info',
-            'first-btn',
-            'prev-btn',
-            'next-btn',
-            'last-btn',
+            "robot-grid",
+            "page-info",
+            "first-btn",
+            "prev-btn",
+            "next-btn",
+            "last-btn",
             3
         );
     }
 
     // Render robots for Top Selling Robot page
-    if (document.getElementById('top-selling-robot-grid')) {
+    if (document.getElementById("top-selling-robot-grid")) {
         renderRobots(
             topSellingRobots,
-            'top-selling-robot-grid',
-            'top-selling-page-info',
-            'top-selling-first-btn',
-            'top-selling-prev-btn',
-            'top-selling-next-btn',
-            'top-selling-last-btn',
+            "top-selling-robot-grid",
+            "top-selling-page-info",
+            "top-selling-first-btn",
+            "top-selling-prev-btn",
+            "top-selling-next-btn",
+            "top-selling-last-btn",
             3
         );
     }
 
     // Render videos for EA Videos page
-    if (document.getElementById('video-grid')) {
+    if (document.getElementById("video-grid")) {
         renderVideos();
     }
 
     // Initialize banner carousel on home page
-    if (document.getElementById('home')) {
+    if (document.getElementById("home")) {
         initializeBannerCarousel();
+    }
+
+    // Handle initial page load for index.html
+    if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            showPage(hash);
+        } else {
+            showPage("home");
+        }
     }
 });

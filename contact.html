@@ -6,75 +6,83 @@
     <title>Contact - GoldRobo-AI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav class="navbar">
+<body class="futuristic-bg">
+    <!-- Sidebar -->
+    <div class="sidebar">
         <div class="logo">
-            <img src="logo.png" alt="GoldRobo-AI Logo" class="logo-img">
+            <img src="images/robot-banner.png" alt="GoldRobo-AI Logo" class="logo-img">
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="ea-videos.html">EA Videos</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="buy-robot.html">Buy Robot</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+        <ul class="sidebar-links">
+            <li><a href="index.html#top-selling-robot"><span class="icon">⭐</span>Top Selling Robot</a></li>
+            <li><a href="index.html#home"><span class="icon">🏠</span>Home</a></li>
+            <li><a href="ea-videos.html"><span class="icon">🎥</span>EA Videos</a></li>
+            <li><a href="about.html"><span class="icon">ℹ️</span>About</a></li>
+            <li><a href="features.html"><span class="icon">⚙️</span>Features</a></li>
+            <li><a href="buy-robot.html"><span class="icon">🤖</span>Buy Robot</a></li>
+            <li><a href="contact.html" class="active"><span class="icon">📞</span>Contact</a></li>
         </ul>
-        <div class="hamburger">☰</div>
-    </nav>
+    </div>
 
-    <section class="contact">
-        <h1 class="gradient-text">Get in Touch with GoldRobo-AI</h1>
-        <p class="max-w-3xl mx-auto text-lg highlight-text">
-            We’re here to help you succeed! Whether you have questions about our trading robots or need assistance, our team is available <span class="highlight-bold">24/7</span> to support you.
-        </p>
-        <div class="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" required></textarea>
-            <button onclick="handleContactSubmit()" class="gold-btn">Send Message</button>
-        </div>
-        <div class="contact-details">
-            <h3 class="gradient-text">Marketing Manager</h3>
-            <img src="images/p1.png" alt="Muhammad Talha" class="contact-image" onerror="this.src='images/default-contact.png'">
-            <p><span class="highlight-bold">Name:</span> <span class="highlight-text">Muhammad Talha</span></p>
-            <p><span class="highlight-bold">WhatsApp:</span> <a href="https://wa.me/923329224200" target="_blank">+92 332 9224200</a></p>
-            <p><span class="highlight-bold">Email:</span> <a href="mailto:talhahussainshah84@gmail.com">talhahussainshah84@gmail.com</a></p>
-            <p><span class="highlight-bold">Location:</span> <span class="highlight-text">Deans Trade Center TF63, Peshawar, Pakistan</span></p>
-        </div>
-        <div class="contact-details">
-            <h3 class="gradient-text">Director</h3>
-            <img src="images/p2.png" alt="Abbas Khan" class="contact-image" onerror="this.src='images/default-contact.png'">
-            <p><span class="highlight-bold">Name:</span> <span class="highlight-text">Abbas Khan</span></p>
-            <p><span class="highlight-bold">WhatsApp:</span> <a href="https://wa.me/9203156600938" target="_blank">9203156600938</a></p>
-            <p><span class="highlight-bold">Email:</span> <a href="mailto:abbaskhan0143@gmail.com">abbaskhan0143@gmail.com</a></p>
-            <p><span class="highlight-bold">Location:</span> <span class="highlight-text">Deans Trade Center TF63, Peshawar, Pakistan</span></p>
-        </div>
-        <div class="contact-details">
-            <h3 class="gradient-text">Chief Executive</h3>
-            <img src="images/p3.png" alt="Zubair Ahmad" class="contact-image" onerror="this.src='images/default-contact.png'">
-            <p><span class="highlight-bold">Name:</span> <span class="highlight-text">Zubair Ahmad</span></p>
-            <p><span class="highlight-bold">WhatsApp:</span> <a href="https://wa.me/9203336403319" target="_blank">9203336403319</a></p>
-            <p><span class="highlight-bold">Email:</span> <a href="mailto:zubair.novartis@gmail.com">zubair.novartis@gmail.com</a></p>
-            <p><span class="highlight-bold">Location:</span> <span class="highlight-text">Islamabad, Pakistan</span></p>
-            <p><span class="highlight-bold">Support Hours:</span> <span class="highlight-text">24/7 Support Available</span></p>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <div class="main-content">
+        <section class="contact">
+            <h1 class="gradient-text">Get in Touch with GoldRobo-AI</h1>
+            <p class="max-w-3xl mx-auto text-lg highlight-text">
+                We’re here to help you succeed! Whether you have questions about our trading robots or need assistance, our team is available <span class="highlight-bold">24/7</span> to support you.
+            </p>
+            <div class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button onclick="handleContactSubmit()" class="gold-btn">Send Message</button>
+            </div>
+            <div class="contact-details">
+                <h3 class="gradient-text">Marketing Manager</h3>
+                <img src="images/p1.png" alt="Muhammad Talha" class="contact-image" onerror="this.src='images/default-contact.png'">
+                <p><span class="highlight-bold">Name:</span> <span class="highlight-text">Muhammad Talha</span></p>
+                <p><span class="highlight-bold">WhatsApp:</span> <a href="https://wa.me/923329224200" target="_blank">+92 332 9224200</a></p>
+                <p><span class="highlight-bold">Email:</span> <a href="/cdn-cgi/l/email-protection#82f6e3eeeae3eaf7f1f1e3ebecf1eae3eabab6c2e5efe3ebeeace1edef"><span class="__cf_email__" data-cfemail="7642575a5e575e434545575f58455e575e0e0276515b575f5a1855595b">[email&#160;protected]</span></a></p>
+                <p><span class="highlight-bold">Location:</span> <span class="highlight-text">Deans Trade Center TF63, Peshawar, Pakistan</span></p>
+            </div>
+            <div class="contact-details">
+                <h3 class="gradient-text">Director</h3>
+                <img src="images/p2.png" alt="Abbas Khan" class="contact-image" onerror="this.src='images/default-contact.png'">
+                <p><span class="highlight-bold">Name:</span> <span class="highlight-text">Abbas Khan</span></p>
+                <p><span class="highlight-bold">WhatsApp:</span> <a href="https://wa.me/9203156600938" target="_blank">9203156600938</a></p>
+                <p><span class="highlight-bold">Email:</span> <a href="/cdn-cgi/l/email-protection#3415161615071f1c151a44454047341319151d185a171b19"><span class="__cf_email__" data-cfemail="a38281818290888b828dd3d2d7d0a3848e828a8fcd808c8e">[email&#160;protected]</span></a></p>
+                <p><span class="highlight-bold">Location:</span> <span class="highlight-text">Deans Trade Center TF63, Peshawar, Pakistan</span></p>
+            </div>
+            <div class="contact-details">
+                <h3 class="gradient-text">Chief Executive</h3>
+                <img src="images/p3.png" alt="Zubair Ahmad" class="contact-image" onerror="this.src='images/default-contact.png'">
+                <p><span class="highlight-bold">Name:</span> <span class="highlight-text">Zubair Ahmad</span></p>
+                <p><span class="highlight-bold">WhatsApp:</span> <a href="https://wa.me/9203336403319" target="_blank">9203336403319</a></p>
+                <p><span class="highlight-bold">Email:</span> <a href="/cdn-cgi/l/email-protection#b1cbc4d3d0d8c39fdfdec7d0c3c5d8c2f1d6dcd0d8dd9fd2dedc"><span class="__cf_email__" data-cfemail="ead0dfc8cbc3d884c4c5dccbd8dec3d9eacdc7cbc3c684c9c5c7">[email&#160;protected]</span></a></p>
+                <p><span class="highlight-bold">Location:</span> <span class="highlight-text">Islamabad, Pakistan</span></p>
+                <p><span class="highlight-bold">Support Hours:</span> <span class="highlight-text">24/7 Support Available</span></p>
+            </div>
+        </section>
 
-    <footer>
-        <p>© 2025 GoldRobo-AI. All rights reserved.</p>
-        <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="ea-videos.html">EA Videos</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="buy-robot.html">Buy Robot</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </footer>
+        <footer class="futuristic-footer">
+            <p>© 2025 GoldRobo-AI. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html#top-selling-robot">Top Selling Robot</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="ea-videos.html">EA Videos</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="buy-robot.html">Buy Robot</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </footer>
+    </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937515800902b019',t:'MTc0NTgyNzgzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937515800902b019',t:'MTc0NTgyNzgzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937c3e887e25b007',t:'MTc0NTkwMjkxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
 </html>
